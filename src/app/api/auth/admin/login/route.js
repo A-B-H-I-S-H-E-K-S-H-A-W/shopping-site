@@ -64,14 +64,14 @@ export async function POST(req) {
 
     response.cookies.set("adminToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: process.env.NODE_ENV === "development",
       maxAge: 1 * 60 * 60,
       path: "/admin",
     });
 
     response.cookies.set("adminRefreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: process.env.NODE_ENV === "development",
       maxAge: 7 * 24 * 60 * 60,
       path: "/admin",
     });
