@@ -5,7 +5,7 @@ configDotenv();
 
 let isConnected = false;
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
     if (isConnected) {
       return;
