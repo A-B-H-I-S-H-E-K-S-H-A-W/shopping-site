@@ -1,7 +1,7 @@
 import { connectDB } from "@/lib/db";
 import Decrypt from "@/lib/Decrypt";
 import { generateAccessTokenAdmin, generateRefreshTokenAdmin } from "@/lib/jwt";
-import { SuperAdmin } from "@/models/superAdmin.model";
+import { Admin } from "@/models/admin.model";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -22,7 +22,7 @@ export async function POST(req) {
       );
     }
 
-    const admin = await SuperAdmin.findOne({ email });
+    const admin = await Admin.findOne({ email });
 
     if (!admin) {
       return NextResponse.json(

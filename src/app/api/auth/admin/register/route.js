@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import Encrypt from "@/lib/Encrypt";
-import { SuperAdmin } from "@/models/superAdmin.model";
+import { Admin } from "@/models/admin.model";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -19,13 +19,13 @@ export async function POST(req) {
       );
     }
 
-    const existingSuperAdmin = await SuperAdmin.findOne({ email });
+    const existingAdmin = await Admin.findOne({ email });
 
-    if (existingSuperAdmin) {
+    if (existingAdmin) {
       return NextResponse.json(
         {
           success: false,
-          message: "SuperAdmin already exists!",
+          message: "Admin already exists!",
         },
         { status: 400 }
       );
@@ -33,23 +33,23 @@ export async function POST(req) {
 
     const hashedPassword = await Encrypt(password);
 
-    const newSuperAdmin = new SuperAdmin({
+    const newAdmin = new Admin({
       username,
       email,
       password: hashedPassword,
     });
 
-    await newSuperAdmin.save();
+    await newAdmin.save();
 
     return NextResponse.json(
       {
         success: true,
-        message: "SuperAdmin registered successfully",
+        message: "Admin registered successfully",
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error("SuperAdmin registration error ::::", error);
+    console.error("Admin registration error ::::", error);
     return NextResponse.json(
       {
         success: false,
