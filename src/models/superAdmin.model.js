@@ -1,8 +1,8 @@
 import { Schema, model, models } from "mongoose";
 
-const adminSchema = new Schema(
+const superAdminSchema = new Schema(
   {
-    Adminname: {
+    superSuperAdminName: {
       type: String,
       trim: true,
     },
@@ -27,4 +27,5 @@ const adminSchema = new Schema(
   }
 );
 
-export const Admin = models.Admin || model("Admin", adminSchema);
+export const SuperAdmin =
+  models.SuperAdmin || model("SuperAdmin", superAdminSchema);
