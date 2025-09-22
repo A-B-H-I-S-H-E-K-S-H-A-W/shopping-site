@@ -6,6 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import React, { useState } from "react";
+import { Card, CardTitle } from "../../../../../components/ui/card";
+import { Plus } from "lucide-react";
+import Link from "next/link";
 
 const cardData = [
   {
@@ -69,14 +72,14 @@ const cardData = [
     title: "Heading",
     description: "Description",
     price: "399",
-    stock: "Out of stock",
+    stock: "Available",
   },
   {
     id: 10,
     title: "Heading",
     description: "Description",
     price: "399",
-    stock: "Out of stock",
+    stock: "Available",
   },
 ];
 
@@ -109,6 +112,14 @@ const Page = () => {
       </div>
 
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-5">
+        <Card>
+          <Link href="/admin/dashboard/products/create-product">
+            <div className="flex flex-col gap-5 justify-center items-center w-full py-10 hover:text-primary duration-300">
+              <Plus size={48} />
+              <CardTitle className="text-xl">Create Product</CardTitle>
+            </div>
+          </Link>
+        </Card>
         {filteredProducts.map(
           ({ id, title, description, price, stock, image }) => (
             <div key={id}>
