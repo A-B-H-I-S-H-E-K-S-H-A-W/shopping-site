@@ -1,10 +1,9 @@
 "use client";
 
-import * as React from "react";
+import React, { useState } from "react";
 import { IconInnerShadowTop } from "@tabler/icons-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
@@ -17,6 +16,8 @@ import {
 } from "@/components/ui/sidebar";
 
 export function AppSidebar({ data, ...props }) {
+  const [isActiveMenu, setIsActiveMenu] = useState(false);
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -36,7 +37,6 @@ export function AppSidebar({ data, ...props }) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data?.navMain} />
-        <NavSecondary items={data?.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data?.user} />

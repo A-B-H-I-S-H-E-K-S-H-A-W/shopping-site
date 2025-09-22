@@ -1,7 +1,6 @@
 "use client";
 
 import { IconCirclePlusFilled, IconMail } from "@tabler/icons-react";
-
 import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
@@ -11,11 +10,15 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function NavMain({ items }) {
+  const pathname = usePathname();
+
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
+        {/* Quick Create Section */}
         <SidebarMenu>
           <SidebarMenuItem className="flex items-center gap-2">
             <SidebarMenuButton
@@ -35,20 +38,30 @@ export function NavMain({ items }) {
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>
+
+        {/* Navigation Items */}
         <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <Link href={item.url}>
-                <SidebarMenuButton
-                  tooltip={item.title}
-                  className={"cursor-pointer"}
-                >
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
-                </SidebarMenuButton>
-              </Link>
-            </SidebarMenuItem>
-          ))}
+          {items.map((item) => {
+            const isActive = pathname === item.url;
+
+            return (
+              <SidebarMenuItem key={item.title}>
+                <Link href={item.url}>
+                  <SidebarMenuButton
+                    tooltip={item.title}
+                    className={`cursor-pointer transition-colors duration-200 ${
+                      isActive
+                        ? "bg-primary text-primary-foreground"
+                        : "hover:none"
+                    }`}
+                  >
+                    {item.icon && <item.icon />}
+                    <span>{item.title}</span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+            );
+          })}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
