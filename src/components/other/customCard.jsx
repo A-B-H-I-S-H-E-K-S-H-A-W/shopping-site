@@ -11,7 +11,7 @@ import {
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 
-const ProductCard = ({ title, description, price, stock, image }) => {
+export const ProductCard = ({ title, description, price, stock, image }) => {
   return (
     <div>
       <Card>
@@ -39,4 +39,10 @@ const ProductCard = ({ title, description, price, stock, image }) => {
   );
 };
 
-export default ProductCard;
+export const billingCard = () => {
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
+};

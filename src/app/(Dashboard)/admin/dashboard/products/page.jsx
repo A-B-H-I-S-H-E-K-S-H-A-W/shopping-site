@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCard from "@/components/other/ProductCard";
+import { ProductCard } from "@/components/other/customCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
