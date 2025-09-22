@@ -38,13 +38,13 @@ const sidebarData = {
       icon: IconListDetails,
     },
     {
-      title: "Sales",
-      url: "/admin/dashboard/sales",
+      title: "Sale",
+      url: "/admin/dashboard/sale",
       icon: IconFolder,
     },
     {
-      title: "Billing",
-      url: "/admin/dashboard/billings",
+      title: "Purchase",
+      url: "/admin/dashboard/purchase",
       icon: IconFileWord,
     },
     {
