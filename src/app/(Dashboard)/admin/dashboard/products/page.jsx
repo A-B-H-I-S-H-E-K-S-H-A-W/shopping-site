@@ -91,7 +91,7 @@ const Page = () => {
     : cardData;
 
   return (
-    <div>
+    <div className="px-4">
       <div className="pt-5 flex justify-between items-center">
         <h2 className="md:text-3xl text-xl font-semibold">All Products</h2>
         <div className="flex items-center gap-2">

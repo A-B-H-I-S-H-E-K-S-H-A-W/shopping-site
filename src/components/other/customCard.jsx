@@ -39,10 +39,33 @@ export const ProductCard = ({ title, description, price, stock, image }) => {
   );
 };
 
-export const billingCard = () => {
+export const PurchaseCard = ({
+  id,
+  description,
+  value,
+  trend,
+  footerMain,
+  footerSub,
+}) => {
   return (
     <div>
-      <div></div>
+      <Card key={id} className="@container/card">
+        <CardHeader>
+          <CardDescription>{description}</CardDescription>
+          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+            {value}
+          </CardTitle>
+          <CardAction>
+            <Badge variant="outline">{trend}</Badge>
+          </CardAction>
+        </CardHeader>
+        <CardFooter className="flex-col items-start gap-1.5 text-sm">
+          <div className="line-clamp-1 flex gap-2 font-medium">
+            {footerMain}
+          </div>
+          <div className="text-muted-foreground">{footerSub}</div>
+        </CardFooter>
+      </Card>
     </div>
   );
 };
