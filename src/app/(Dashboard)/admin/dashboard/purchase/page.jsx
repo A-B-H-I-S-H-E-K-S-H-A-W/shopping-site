@@ -11,6 +11,8 @@ import {
 import { PurchaseCard } from "@/components/other/customCard";
 import data from "../data";
 import { DataTable } from "@/components/data-table";
+import { Plus } from "lucide-react";
+import Link from "next/link";
 
 const cardsData = [
   {
@@ -48,10 +50,17 @@ const page = () => {
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div
                 className={
-                  "grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-3 px-4"
+                  "grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-3 md:px-5 px-4"
                 }
               >
-                <Card className="@container/card">Hello</Card>
+                <Card>
+                  <Link href="/admin/dashboard/purchase/create-purchase">
+                    <div className="flex flex-col gap-5 justify-center items-center w-full hover:text-primary duration-300">
+                      <Plus size={40} />
+                      <CardTitle className="text-xl">Create Purchase</CardTitle>
+                    </div>
+                  </Link>
+                </Card>
                 {cardsData.map(
                   ({
                     id,
