@@ -1,13 +1,12 @@
 "use client";
 
-import { SectionCards } from "@/components/section-cards";
 import React from "react";
 import { Card, CardTitle } from "@/components/ui/card";
 import { PurchaseCard } from "@/components/other/customCard";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { CustomTable } from "@/components/customTable";
-import data from "./create-purchase/data.json";
+import data from "./data.json";
 
 const cardsData = [
   {

@@ -1,0 +1,14 @@
+[
+  {
+    "invoiceNo": "INV-001",
+    "amount": 1200,
+    "partyName": "ABC Pvt Ltd",
+    "date": "2025-09-01"
+  },
+  {
+    "invoiceNo": "INV-002",
+    "amount": 800,
+    "partyName": "XYZ Traders",
+    "date": "2025-09-05"
+  }
+]

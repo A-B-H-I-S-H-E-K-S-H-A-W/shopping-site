@@ -1,14 +1,37 @@
 [
   {
-    "invoiceNo": "INV-001",
-    "amount": 1200,
-    "partyName": "ABC Pvt Ltd",
-    "date": "2025-09-01"
+    "productName": "Laptop",
+    "qty": 2,
+    "rate": 55000,
+    "taxRate": "18%",
+    "amount": 129800
   },
   {
-    "invoiceNo": "INV-002",
-    "amount": 800,
-    "partyName": "XYZ Traders",
-    "date": "2025-09-05"
+    "productName": "Wireless Mouse",
+    "qty": 5,
+    "rate": 1200,
+    "taxRate": "12%",
+    "amount": 6720
+  },
+  {
+    "productName": "Keyboard",
+    "qty": 3,
+    "rate": 2500,
+    "taxRate": "12%",
+    "amount": 8400
+  },
+  {
+    "productName": "Monitor 24\"",
+    "qty": 1,
+    "rate": 15000,
+    "taxRate": "18%",
+    "amount": 17700
+  },
+  {
+    "productName": "USB-C Hub",
+    "qty": 4,
+    "rate": 1800,
+    "taxRate": "18%",
+    "amount": 8496
   }
 ]
