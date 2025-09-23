@@ -1,18 +1,13 @@
+"use client";
+
 import { SectionCards } from "@/components/section-cards";
 import React from "react";
-import {
-  Card,
-  CardAction,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardTitle } from "@/components/ui/card";
 import { PurchaseCard } from "@/components/other/customCard";
-import data from "../data";
-import { DataTable } from "@/components/data-table";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import { CustomTable } from "@/components/customTable";
+import data from "./create-purchase/data.json";
 
 const cardsData = [
   {
@@ -41,16 +36,36 @@ const cardsData = [
   },
 ];
 
+const columns = [
+  {
+    accessorKey: "invoiceNo",
+    header: "Invoice No.",
+  },
+  {
+    accessorKey: "amount",
+    header: "Amount",
+    cell: ({ row }) => <span>{row.getValue("amount")}</span>,
+  },
+  {
+    accessorKey: "partyName",
+    header: "Party Name",
+  },
+  {
+    accessorKey: "date",
+    header: "Date",
+  },
+];
+
 const page = () => {
   return (
     <>
-      <div>
+      <div className="md:px-5 px-4">
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div
                 className={
-                  "grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-3 md:px-5 px-4"
+                  "grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-3 "
                 }
               >
                 <Card>
@@ -82,7 +97,7 @@ const page = () => {
                   )
                 )}
               </div>
-              <DataTable data={data} />
+              <CustomTable data={data} customColumns={columns} />
             </div>
           </div>
         </div>
